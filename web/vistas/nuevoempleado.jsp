@@ -257,7 +257,7 @@
                                 <section class="content">
                                     <div class="box">
                                         <form class="" action="Empleado?accion=${accion}" method="post">
-                                            <input type="hidden" name="hCodigo" value="${empleados.Id_Empleados}">
+                                            <input type="hidden" name="hCodigo" value="${regEmpleado.getId_Empleados()}">
                                             
 
                                             <div class="box-header with-border">
