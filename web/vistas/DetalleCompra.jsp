@@ -205,7 +205,7 @@
                 </div>
                 <div class="card-footer d-flex">
                     <label class="col-sm-9 text-right mt-1">Monto Total de la Compra</label>
-                    <input type="text" class=" text-center form-control col-sm-3" readonly="" value="S/.${montoPagar}0" style="font-size: 20px; font-family: monospace">
+                    <input type="text" class=" text-center form-control col-sm-3" readonly="" value="₲${montoPagar}0" style="font-size: 20px; font-family: monospace">
                 </div>
             </div>          
         </div> 

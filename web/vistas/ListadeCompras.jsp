@@ -308,7 +308,7 @@
                                                                 <td>${compra.comprobante}</td>
                                                                 <td>${compra.getNumserie()}</td>                        
                                                                 <td>${compra.fecha}</td>                        
-                                                                <td>S/. ${compra.monto}</td>                       
+                                                                <td>₲ ${compra.monto}</td>                       
                                                                 <td>${empleado.nombre}</td>                       
                                                                 <td>
                                                                     <a href="<c:url value="ControladorCompras">

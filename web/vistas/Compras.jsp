@@ -467,7 +467,7 @@
                         </script>
                         <script>
                             $(document).ready(function () {
-                                $("tr #Cantidad").click(function () {
+                                $("tr #Cantidad").change(function () {
                                     var idp = $(this).parent().find("#idpro").val();
                                     var url = "ControladorCompras?accion=ActualizarCantidad";
                                     var cantidad = $(this).parent().find("#Cantidad").val();

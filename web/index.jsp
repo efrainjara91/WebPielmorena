@@ -359,7 +359,7 @@
                                     <div class="text">
 
                                         <h3>${p.getNombre()}</h3>  
-                                        <h4><a class="">S/. ${p.getPrecio()}</a></h4>
+                                        <h4><a class="">₲ ${p.getPrecio()}</a></h4>
                                         <h5 class="col-sm-12" text:center>${p.getDescripcion()}</h5>   
 
                                         <a href="Controlador?accion=AgregarCarrito&id=${p.getId_Producto()}" class="btn btn-default">Agregar a Carrito<i class="fa fa-cart-plus"></i></a>
@@ -406,7 +406,7 @@
 
                                     <div class="text">
                                         <h3>${p.getNombre()}</h3>  
-                                        <h4>S/. ${p.getPrecio()}</h4>
+                                        <h4>₲ ${p.getPrecio()}</h4>
                                         <h5 class="col-sm-12" text:center>${p.getDescripcion()}</h5>   
 
                                         <a href="Controlador?accion=AgregarCarrito&id=${p.getId_Producto()}" class="btn btn-default">Agregar a Carrito<i class="fa fa-cart-plus"></i></a>

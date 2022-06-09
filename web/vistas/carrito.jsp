@@ -216,7 +216,7 @@
                                         <input type="hidden" id="item1" value="${c.getIdProducto()}">
                                         <input type="number" min="1" max="10"  id="Cant" class=" form-control text-center" value="${c.getCantidad()}">
                                     </td>   
-                                    <td>S/. ${c.getSubTotal()}0</td>                           
+                                    <td>₲ ${c.getSubTotal()}0</td>                           
                                     <td class="text-center">                                         
                                         <input type="hidden" id="item2" value="${c.getIdProducto()}">
                                         <a id="deleteItem" href="#" class="btn"><i class="fa fa-trash"></i></a>                                            

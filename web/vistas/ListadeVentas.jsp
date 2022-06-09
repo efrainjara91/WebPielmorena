@@ -325,7 +325,7 @@
                                                                 <td>${venta.idComprobante.nombre}</td>
                                                                 <td>${venta.numeroSerie}</td>                        
                                                                 <td>${venta.fechaVenta}</td>                        
-                                                                <td>S/. ${venta.montoventa}</td>                       
+                                                                <td>₲ ${venta.montoventa}</td>                       
                                                                 <c:if test="${venta.estado == true}">
                                                                     <td>
                                                                         <span class="badge bg-green active">ACEPTADO</span></td> 

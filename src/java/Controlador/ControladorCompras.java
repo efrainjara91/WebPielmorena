@@ -287,7 +287,7 @@ public class ControladorCompras extends HttpServlet {
                 break;
             default:
                 request.getRequestDispatcher("ControladorCompras?accion=NuevaCompra").forward(request, response);
-                throw new AssertionError();
+//                throw new AssertionError();
         }
 
     }
