@@ -366,13 +366,7 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                                                            <div class="form-group">    
-                                                                <label>Clave:</label>
-                                                                <input id="clave" type="password" maxlength="20" name="txtClave"  placeholder="Contraseña" class="form-control" 
-                                                                       value="${cliente.clave}">
-                                                            </div>
-                                                        </div>
+                         
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <label>Género</label>

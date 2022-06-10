@@ -6,7 +6,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page session="true"%>
 <%
-    if (session.getAttribute("empleado") != null) {
+    if (session.getAttribute("empleado") != null) { //este va cuando es admin
 %>
 <html>
     <head>

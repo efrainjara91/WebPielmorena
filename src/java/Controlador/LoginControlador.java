@@ -55,7 +55,9 @@ public class LoginControlador extends HttpServlet {
                         } else if (e.getNombreUsuario() != null) {
                             sesion.setAttribute("empleado", e);
                             request.getRequestDispatcher("Principal.jsp").forward(request, response);
-
+                        } else if (e.getNombreUsuario() != null && e.getCargo().getDescripcion().equals("VENDEDOR")) {
+                            sesion.setAttribute("gerente", e);
+                            request.getRequestDispatcher("formsGerente.jsp").forward(request, response);
                         } else {
                             request.setAttribute("msje", "Credenciales no válidas");
                             sesion.invalidate();

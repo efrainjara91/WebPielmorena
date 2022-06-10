@@ -294,8 +294,8 @@
                                                             <div class="form-group">
                                                                 <label>Tipo Documento (*):</label>
                                                                 <select required="" id="cboTipoDocumento" name="cboTipoDocumento" class="form-control">
+                                                                    <option value="">Seleccione</option>
                                                                     <c:forEach items="${documento}" var="doc">
-                                                                        <option value="">Seleccione</option>
                                                                         <option value="${doc.codigo}"  
                                                                                 <c:if test="${doc.codigo == 
                                                                                               regEmpleado.getDocumentoIdentidad().codigo}">
@@ -353,7 +353,7 @@
 
                                                             <label for="pass">Clave :</label>
                                                             <div class="input-group">
-                                                                <input class="form-control" type="password" maxlength="20" readonly="readonly" name="txtClave" placeholder="Contraseña"
+                                                                <input class="form-control" type="password" maxlength="20"  name="txtClave" placeholder="Contraseña"
                                                                        data-toggle="tooltip" title="Este campo esta deshabilitado.La contraseña del empleado es igual al Número de Documento" 
                                                                        value="${regEmpleado.getClave()}"/>
                                                                 <span id="show-hide-passwd" action="hide" class="input-group-addon glyphicon glyphicon glyphicon-eye-open"></span>

@@ -6,7 +6,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page session="true"%>
 <%
-  if (session.getAttribute("vendedor") != null) {
+  if (session.getAttribute("gerente") != null) {
 %>
 <html>
     <head>
@@ -55,14 +55,14 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <img src="dist/img/admin.png" class="user-image" alt="User Image">
-                                    <span class="hidden-xs">${vendedor.getNombreCompleto()} </span>
+                                    <span class="hidden-xs">${gerente.getNombreCompleto()} </span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="dist/img/admin.png" class="img-circle" alt="User Image">
-                                        <p>${vendedor.getNombreUsuario()}         
-                                            <small>${vendedor.getCargo().getDescripcion()}</small>
+                                        <p>${gerente.getNombreUsuario()}         
+                                            <small>${gerente.getCargo().getDescripcion()}</small>
                                         </p>
                                     </li>
 
@@ -112,7 +112,7 @@
                             <img src="dist/img/admin.png" class="img-circle" alt="User Image">
                         </div>
                         <div class="pull-left info">
-                            <p> ${vendedor.getNombreCompleto()}</p>
+                            <p> ${gerente.getNombreCompleto()}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
@@ -120,27 +120,12 @@
                     <ul class="sidebar-menu" data-widget="tree">
                         <li class="header">MENÚ PRINCIPAL</li>
                         <li class="active" id="liInicio">
-                            <a href="formsVendedor.jsp" >
+                            <a href="formsGerente.jsp" >
                                 <i class="fa fa-home"></i><span>Inicio</span>           
                             </a>
                         </li>
 
-                        
-
-                        
-
-                        <li class="treeview">
-                            <a href="#">
-                                <i class="glyphicon glyphicon-shopping-cart"></i>                                             
-                                <span>Ventas</span>
-                                <span class="pull-right-container">
-                                    <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="ControladorVentasVendedor?accion=NuevaVenta" ><i class="glyphicon glyphicon-plus-sign"></i> Nueva Venta</a></li>
-                            </ul>
-                        </li>
+                
                         
                         
                         <li class="treeview">
@@ -149,7 +134,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu menu-open" style="">
+                                <li class=""><a href="ControladorComprasVendedor?accion=ListarVentas" ><i class="fa fa-bar-chart"></i> Reporte de Compras</a></li>
                                 <li class=""><a href="ControladorVentasVendedor?accion=ListarVentas" ><i class="fa fa-bar-chart"></i> Reporte de Ventas</a></li>                            </ul>
+                                  
                         </li>
                         
                 </section>

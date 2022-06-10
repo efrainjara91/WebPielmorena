@@ -6,7 +6,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page session="true"%>
 <%
-  if (session.getAttribute("vendedor") != null) {
+  if (session.getAttribute("vendedor") != null) { // este va cuando es vendedor
 %>
 <html>
     <head>
@@ -58,7 +58,7 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                 <img src="dist/img/admin.png" class="user-image" alt="User Image">
-                                <span class="hidden-xs">${empleado.getNombreCompleto()} </span>
+                                <span class="hidden-xs">${vendedor.getNombreCompleto()} </span>
                             </a>
                             <ul class="dropdown-menu">
 
@@ -66,8 +66,8 @@
                                 <li class="user-header">
                                     <img src="dist/img/admin.png" class="img-circle" alt="User Image">
                                     <p>
-                                        ${empleado.getNombreUsuario()}           
-                                        <small>${empleado.getCargo().getDescripcion()}</small>
+                                        ${vendedor.getNombreUsuario()}           
+                                        <small>${vendedor.getCargo().getDescripcion()}</small>
                                     </p>
                                 </li>
 
@@ -114,7 +114,7 @@
                                         <img src="dist/img/admin.png" class="img-circle" alt="User Image">
                                     </div>
                                     <div class="pull-left info">
-                                        <p> ${empleado.getNombreCompleto()}</p>
+                                        <p> ${vendedor.getNombreCompleto()}</p>
                                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                                     </div>
                                 </div>
