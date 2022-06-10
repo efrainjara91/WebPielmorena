@@ -272,7 +272,7 @@
                                                         <th>Proveedor</th>
                                                         <th>RUC</th>
                                                         <th>Representante</th>
-                                                        <th>Tipo Proveedor</th>  
+                                                        <th>44</th>  
                                                         <th>Telefono</th>
                                                         <th>Dirección</th>
                                                         <th>Estado</th>

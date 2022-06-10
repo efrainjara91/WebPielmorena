@@ -329,7 +329,7 @@
                                                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <label>Celular :</label>
-                                                                <input id="txtCelular" type="text" maxlength="9" name="txtCelular" class="form-control" placeholder="Ingrese el teléfono"
+                                                                <input id="txtCelular" type="text" maxlength="12" name="txtCelular" class="form-control" placeholder="Ingrese el teléfono"
                                                                        value="${proveedor.telefono}" />
                                                             </div>
                                                         </div>
