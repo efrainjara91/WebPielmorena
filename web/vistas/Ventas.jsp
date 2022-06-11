@@ -277,7 +277,7 @@
                                                                     <c:if test="${cli.idCliente == cvalor}">
                                                                         selected
                                                                     </c:if>
-                                                                    >${cli.nombres}</option>
+                                                                    >${cli.nombres} ${cli.apellido_paterno} ${cli.apellido_materno}</option>
                                                         </c:forEach>
                                                     </select>
                                                 </div>
@@ -347,7 +347,7 @@
                                                                     <c:forEach var="prod" items="${productos}" varStatus="iteracion"  >
                                                                         <tr class="text-center">
                                                                             <td>
-                                                                                <a href="ControladorPrincipal?accion=AgregarProductoaBoleta&cod=${prod.id_Producto}" class="btn btn-warning" data-toggle="tooltip" title="Agregar al detalle" data-original-title="Agregar al detalle">
+                                                                                <a href="ControladorPrincipal?accion=AgregarProductoaTicket&cod=${prod.id_Producto}" class="btn btn-warning" data-toggle="tooltip" title="Agregar al detalle" data-original-title="Agregar al detalle">
                                                                                     <i class="fa fa-plus"></i>
                                                                                 </a> 
                                                                             </td>                                             
@@ -379,7 +379,7 @@
                                                             </tr>  
                                                         </thead>
                                                         <tbody>
-                                                            <c:forEach var="det" items="${listaProductosBoleta}" varStatus="iteracion">
+                                                            <c:forEach var="det" items="${listaProductosTicket}" varStatus="iteracion">
                                                                 <tr>
                                                                     <td class="text-center">${iteracion.index + 1}</td>                                    
                                                                     <td>${det.descripcion}

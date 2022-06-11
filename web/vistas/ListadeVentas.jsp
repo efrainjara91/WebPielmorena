@@ -284,7 +284,7 @@
                                                         <label>Buscar Por Tipo Documento</label>  
                                                         <select class="form-control" name="cboTipoDoc" required="">
                                                             <option value="">Seleccione Documento</option>
-                                                            <option value="1">Boleta</option>
+                                                            <option value="1">Ticket</option>
                                                             <option value="2">Factura</option>
                                                             <option value="3">Guia Remision</option>
                                                         </select>

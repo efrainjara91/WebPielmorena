@@ -42,9 +42,11 @@
                 <div class="card" style="width: 500px"> 
                     <p class="text-center">  
                         <br>
+                        
                         ${tipocompro} NRO: ${NumeroSerie} - FECHA:<%= fecha.Fecha()%><br>
-                        CENTRO DE CALZADO "CIELO LUANA" | CHICLAYO-P<br>  
-                        CLIENTE: ${nomclie} RUC: 201292992921<br>                                                     
+                        PIEL MORENA | HERNANDARIAS-AP<br>  
+                        RUC: 2943444-0<br>
+                        CLIENTE: ${nomclie} <br>                                                     
                     </p> 
                     <div class="ml-4 mr-4">                                                  
                         <table class="table table-borderless">
@@ -58,7 +60,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <c:forEach var="det" items="${listaProductosBoleta}" varStatus="iteracion">
+                                <c:forEach var="det" items="${listaProductosTicket}" varStatus="iteracion">
                                     <tr>
                                         <td>${iteracion.index + 1}</td>                                            
                                         <td>${det.descripcion}
@@ -75,8 +77,6 @@
                                 <tr>                                   
                                     <td>Subtotal:</td>
                                     <td>${SubTotal}</td>
-                                    <td>IGV:</td>
-                                    <td>${IGV}</td>
                                     <td>Total:</td>
                                     <td>${TotalPagar}</td>
                                 </tr>                                                                      

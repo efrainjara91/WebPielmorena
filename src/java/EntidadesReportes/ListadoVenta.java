@@ -33,7 +33,7 @@ private int codigo;
   public String getNombreDocumento(){
     String nombre = "";
     switch( this.tipoDocumento){
-      case "B" : nombre = "Boleta"; break;
+      case "B" : nombre = "Ticket"; break;
       case "F" : nombre = "Factura"; break;
     }
     return nombre;

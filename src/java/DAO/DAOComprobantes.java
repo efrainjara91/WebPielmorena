@@ -64,7 +64,7 @@ public class DAOComprobantes
 
     }
 
-    public List<Comprobantes> listarCompBoleta() throws Exception {
+    public List<Comprobantes> listarCompTicket() throws Exception {
         List<Comprobantes> proveedor;
         Comprobantes compr;
         ResultSet rs = null;

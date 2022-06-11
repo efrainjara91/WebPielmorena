@@ -13,7 +13,7 @@ import Modelo.Comprobantes;
 import Modelo.DetalleVenta;
 import Modelo.Empleados;
 import Modelo.Productos;
-import Modelo.ProductosBoleta;
+import Modelo.ProductosTicket;
 import Modelo.Venta;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -35,7 +35,7 @@ public class ControladorVentas extends HttpServlet {
 
     List<Venta> listaVentas = new ArrayList<>();
     List<Productos> listaProductos = new ArrayList<>();
-    List<ProductosBoleta> listaProductosBoleta = new ArrayList<>();
+    List<ProductosTicket> listaProductosTicket = new ArrayList<>();
     int id;
     int cantidad = 1;
     double total;
@@ -62,7 +62,7 @@ public class ControladorVentas extends HttpServlet {
         try {
             request.setAttribute("productos", pdao.listarProductosConStock());
             request.setAttribute("cliente", cdao.listarActivos());
-            request.setAttribute("comprobante", comdao.listarCompBoleta());
+            request.setAttribute("comprobante", comdao.listarCompTicket());
         } catch (Exception e) {
         }
         String accion = request.getParameter("accion");
@@ -78,7 +78,7 @@ public class ControladorVentas extends HttpServlet {
                 switch (accion) {
                 case "NuevaVenta":
                     NumeroSerieComprobate(request);
-                    listarBoleta(request);
+                    listarTicket(request);
                     request.getRequestDispatcher("vistas/Ventas.jsp").forward(request, response);
                     break;
                 case "ListarVentas":
@@ -102,44 +102,44 @@ public class ControladorVentas extends HttpServlet {
                     NumeroSerieComprobate(request);
                     request.getRequestDispatcher("ControladorPrincipal?accion=Listar").forward(request, response);
                     break;
-                case "AgregarProductoaBoleta":
+                case "AgregarProductoaTicket":
                     cantidad = 1;
                     int pos = 0;
                     id = Integer.parseInt(request.getParameter("cod"));
-                    if (listaProductosBoleta.size() > 0) {
-                        for (int i = 0; i < listaProductosBoleta.size(); i++) {
-                            if (listaProductosBoleta.get(i).getId() == id) {
+                    if (listaProductosTicket.size() > 0) {
+                        for (int i = 0; i < listaProductosTicket.size(); i++) {
+                            if (listaProductosTicket.get(i).getId() == id) {
                                 pos = i;
                             }
                         }
-                        if (listaProductosBoleta.get(pos).getId() == id) {
-                            cantidad = listaProductosBoleta.get(pos).getCant() + cantidad;
-                            total = listaProductosBoleta.get(pos).getPrecioVenta() * cantidad;
-                            listaProductosBoleta.get(pos).setCant(cantidad);
-                            listaProductosBoleta.get(pos).setPrecioTotal(total);
+                        if (listaProductosTicket.get(pos).getId() == id) {
+                            cantidad = listaProductosTicket.get(pos).getCant() + cantidad;
+                            total = listaProductosTicket.get(pos).getPrecioVenta() * cantidad;
+                            listaProductosTicket.get(pos).setCant(cantidad);
+                            listaProductosTicket.get(pos).setPrecioTotal(total);
                         } else {
                             Productos p = pdao.listarId(id);
-                            ProductosBoleta pb = new ProductosBoleta();
+                            ProductosTicket pb = new ProductosTicket();
                             pb.setId(id);
                             pb.setDescripcion(p.getNombre());
                             pb.setCant(cantidad);
                             pb.setPrecioVenta(p.getPrecio());
                             total = cantidad * p.getPrecio();
                             pb.setPrecioTotal(total);
-                            listaProductosBoleta.add(pb);
+                            listaProductosTicket.add(pb);
                         }
                     } else {
                         Productos p = pdao.listarId(id);
-                        ProductosBoleta pb = new ProductosBoleta();
+                        ProductosTicket pb = new ProductosTicket();
                         pb.setId(id);
                         pb.setDescripcion(p.getNombre());
                         pb.setCant(cantidad);
                         pb.setPrecioVenta(p.getPrecio());
                         total = cantidad * p.getPrecio();
                         pb.setPrecioTotal(total);
-                        listaProductosBoleta.add(pb);
+                        listaProductosTicket.add(pb);
                     }
-                    listarBoleta(request);
+                    listarTicket(request);
                     request.getRequestDispatcher("vistas/Ventas.jsp").forward(request, response);
                     break;
                 case "ActualizarCantidad":
@@ -147,31 +147,31 @@ public class ControladorVentas extends HttpServlet {
                     arreglo = request.getParameterValues("arreglo[]");
                     id = Integer.parseInt(arreglo[0]);
                     int cant = Integer.parseInt(arreglo[1]);
-                    for (int i = 0; i < listaProductosBoleta.size(); i++) {
-                        if (listaProductosBoleta.get(i).getId() == id) {
-                            listaProductosBoleta.get(i).setCant(cant);
-                            subTotal = listaProductosBoleta.get(i).getPrecioVenta() * cant;
-                            listaProductosBoleta.get(i).setPrecioTotal(subTotal);
+                    for (int i = 0; i < listaProductosTicket.size(); i++) {
+                        if (listaProductosTicket.get(i).getId() == id) {
+                            listaProductosTicket.get(i).setCant(cant);
+                            subTotal = listaProductosTicket.get(i).getPrecioVenta() * cant;
+                            listaProductosTicket.get(i).setPrecioTotal(subTotal);
                         }
                     }
     
                     break;
                 case "Delete":
                     id = Integer.parseInt(request.getParameter("id"));
-                    for (int i = 0; i < listaProductosBoleta.size(); i++) {
-                        if (listaProductosBoleta.get(i).getId() == id) {
-                            listaProductosBoleta.remove(i);
+                    for (int i = 0; i < listaProductosTicket.size(); i++) {
+                        if (listaProductosTicket.get(i).getId() == id) {
+                            listaProductosTicket.remove(i);
                         }
                     }
-                    listarBoleta(request);
+                    listarTicket(request);
                     request.getRequestDispatcher("vistas/Ventas.jsp").forward(request, response);
                     break;
                 case "GenerarVenta":
                     //Este Buble es para Actualizar Stock
-                    for (int s = 0; s < listaProductosBoleta.size(); s++) {
+                    for (int s = 0; s < listaProductosTicket.size(); s++) {
                         pro = new Productos();
-                        cantidad = listaProductosBoleta.get(s).getCant();
-                        int idpro = listaProductosBoleta.get(s).getId();
+                        cantidad = listaProductosTicket.get(s).getCant();
+                        int idpro = listaProductosTicket.get(s).getId();
                         pro = pdao.listarId(idpro);
                         int sa = pro.getStock() - cantidad;
                         pdao.actualizarStock(sa, idpro);
@@ -201,13 +201,13 @@ public class ControladorVentas extends HttpServlet {
                         v.setIdComprobante(com);
                         List<DetalleVenta> detale = new ArrayList<>();
                         //Agregar Valores dentro de la Variable Lista                   
-                        for (int i = 0; i < listaProductosBoleta.size(); i++) {
+                        for (int i = 0; i < listaProductosTicket.size(); i++) {
                             DetalleVenta dv = new DetalleVenta();
                             Productos pdo = new Productos();
-                            pdo.setId_Producto(listaProductosBoleta.get(i).getId());
+                            pdo.setId_Producto(listaProductosTicket.get(i).getId());
                             dv.setProducto(pdo);
-                            dv.setCantidad(listaProductosBoleta.get(i).getCant());
-                            dv.setPrecioUnitario(listaProductosBoleta.get(i).getPrecioVenta());
+                            dv.setCantidad(listaProductosTicket.get(i).getCant());
+                            dv.setPrecioUnitario(listaProductosTicket.get(i).getPrecioVenta());
                             detale.add(dv);
                         }
                         //Aqui todo el Detalle Colocando dentro del objeto venta en sus campo Detalle
@@ -222,12 +222,12 @@ public class ControladorVentas extends HttpServlet {
                     } else {
                         request.getRequestDispatcher("ControladorPrincipal?accion=NuevaVenta").forward(request, response);
                     }
-                    listaProductosBoleta = new ArrayList<>();
+                    listaProductosTicket = new ArrayList<>();
                     NumeroSerieComprobate(request);
                     limpiar();
                     break;
                 case "Cancelar":
-                    listaProductosBoleta = new ArrayList<>();
+                    listaProductosTicket = new ArrayList<>();
                     limpiar();
                     request.getRequestDispatcher("ControladorPrincipal?accion=NuevaVenta").forward(request, response);
                     break;
@@ -309,14 +309,14 @@ public class ControladorVentas extends HttpServlet {
         }
     }
 
-    public void listarBoleta(HttpServletRequest request) {
+    public void listarTicket(HttpServletRequest request) {
         HttpSession httpSession = request.getSession();
         subTotal = 0.0;
         igv = 0.0;
 
         totalPagar = 0.0;
-        for (int i = 0; i < listaProductosBoleta.size(); i++) {
-            subTotal = subTotal + listaProductosBoleta.get(i).getPrecioTotal();
+        for (int i = 0; i < listaProductosTicket.size(); i++) {
+            subTotal = subTotal + listaProductosTicket.get(i).getPrecioTotal();
         }
 
 //        igv = subTotal * 0.18;
@@ -327,7 +327,7 @@ public class ControladorVentas extends HttpServlet {
         httpSession.setAttribute("SubTotal", df.format(subTotal));
         httpSession.setAttribute("IGV", df.format(igv));
         httpSession.setAttribute("TotalPagar", df.format(totalPagar));
-        httpSession.setAttribute("listaProductosBoleta", listaProductosBoleta);
+        httpSession.setAttribute("listaProductosTicket", listaProductosTicket);
         request.setAttribute("NumeroSerie", NumeroSerie);
     }
 

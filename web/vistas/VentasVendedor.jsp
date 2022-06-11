@@ -274,7 +274,7 @@
                                                                     <c:forEach var="prod" items="${productos}" varStatus="iteracion"  >
                                                                         <tr class="text-center">
                                                                             <td>
-                                                                                <a href="ControladorVentasVendedor?accion=AgregarProductoaBoleta&cod=${prod.id_Producto}" class="btn btn-warning" data-toggle="tooltip" title="Agregar al detalle" data-original-title="Agregar al detalle">
+                                                                                <a href="ControladorVentasVendedor?accion=AgregarProductoaTicket&cod=${prod.id_Producto}" class="btn btn-warning" data-toggle="tooltip" title="Agregar al detalle" data-original-title="Agregar al detalle">
                                                                                     <i class="fa fa-plus"></i>
                                                                                 </a> 
                                                                             </td>                                             
@@ -306,7 +306,7 @@
                                                             </tr>  
                                                         </thead>
                                                         <tbody>
-                                                            <c:forEach var="det" items="${listaProductosBoleta}" varStatus="iteracion">
+                                                            <c:forEach var="det" items="${listaProductosTicket}" varStatus="iteracion">
                                                                 <tr>
                                                                     <td class="text-center">${iteracion.index + 1}</td>                                    
                                                                     <td>${det.descripcion}
@@ -330,7 +330,7 @@
                                                         <div class="card-body">
                                                             SubTotal
                                                             <input value="${SubTotal}" type="text" class="form-control" readonly="">
-                                                            IGV 18%
+                                                            IVA 10%
                                                             <input value="${IGV}" type="text" class="form-control" readonly="">
                                                             TotalPagar
                                                             <input value="${TotalPagar}" type="text" class="form-control" readonly="">

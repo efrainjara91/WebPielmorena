@@ -1,17 +1,17 @@
 
 package Modelo;
 
-public class ProductosBoleta {
+public class ProductosTicket {
     int id;
     String descripcion;
     int cant;
     double precioVenta;
     double precioTotal;
 
-    public ProductosBoleta() {
+    public ProductosTicket() {
     }
 
-    public ProductosBoleta(int id, String descripcion, int cant, double precioVenta, double precioTotal) {
+    public ProductosTicket(int id, String descripcion, int cant, double precioVenta, double precioTotal) {
         this.id = id;
         this.descripcion = descripcion;
         this.cant = cant;

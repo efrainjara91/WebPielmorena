@@ -139,7 +139,7 @@ CREATE TABLE `comprobante` (
 --
 
 INSERT INTO `comprobante` (`idComprobante`, `nombre`) VALUES
-(1, 'BOLETA'),
+(1, 'TICKET'),
 (2, 'FACTURA');
 
 -- --------------------------------------------------------
