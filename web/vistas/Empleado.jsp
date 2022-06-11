@@ -166,8 +166,7 @@
                                         </a>
                                         <ul class="treeview-menu">
                                             <li><a href="ControladorPrincipal?accion=NuevaVenta"><i class="fa fa-cart-plus"></i> Nueva Venta</a></li>
-                                            <li><a href="ListadoVentas.jsp"><i class="glyphicon glyphicon-list-alt"></i> Administrar Ventas</a></li>
-
+                                            <li><a href="ControladorPrincipal?accion=ListarVentas"><i class="glyphicon glyphicon-list-alt"></i> Administrar Ventas</a></li>
                                         </ul>
                                     </li>
 

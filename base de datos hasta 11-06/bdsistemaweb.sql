@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2022 at 06:05 PM
+-- Generation Time: Jun 11, 2022 at 07:18 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -73,11 +73,10 @@ CREATE TABLE `cliente` (
   `nombres` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `direccion` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `correo_electrónico` varchar(30) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `clave` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `apellido_paterno` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `apellido_materno` varchar(100) COLLATE utf8_spanish_ci DEFAULT NULL,
   `genero` char(1) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `celular` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `celular` varchar(12) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   `estado` bit(1) DEFAULT NULL,
   `idDocumentoIdentidad` int(11) NOT NULL
@@ -88,8 +87,8 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`idCliente`, `numIdentificación`, `nombres`, `direccion`, `correo_electrónico`, `apellido_paterno`, `apellido_materno`, `genero`, `celular`, `fecha_nacimiento`, `estado`, `idDocumentoIdentidad`) VALUES
-(52, '5806038', 'Efrain', 'Asuncion', 'efrainjara91@gmail.com', '123', 'Benitez', 'Jara', 'M', '0973720210', '2022-06-07', b'1', 2),
-(53, '5806039', 'Amilcar', 'Hernandarias', 'efrainjara95@gmail.com', '123', 'Dominguez ', 'Galeano', 'M', '0973720211', '2022-06-08', b'1', 1);
+(52, '5806038', 'Efrain', 'Asuncion', 'efrainjara91@gmail.com', 'Benitez', 'Jara', 'M', '0973720210', '2022-06-11', b'1', 1),
+(53, '5806039', 'Amilcar', 'Hernandarias', 'efrainjara95@gmail.com', 'Dominguez ', 'Galeano', 'M', '0973720211', '2022-06-08', b'1', 1);
 
 -- --------------------------------------------------------
 
@@ -107,6 +106,14 @@ CREATE TABLE `compras` (
   `idComprobante` int(11) NOT NULL,
   `estado` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `compras`
+--
+
+INSERT INTO `compras` (`idcompra`, `idProveedor`, `idEmpleado`, `fecha`, `monto`, `NumeroSerie`, `idComprobante`, `estado`) VALUES
+(29, 2, 1, '2022-06-10', 1700000, '004-008-0177131', 2, '1'),
+(30, 2, 5, '2022-06-10', 1275000, '001-001-0000010', 2, '1');
 
 -- --------------------------------------------------------
 
@@ -176,7 +183,9 @@ INSERT INTO `detalle_compras` (`idDetalle`, `idCompras`, `idProducto`, `cantidad
 (19, 24, 11, 1, 260),
 (20, 26, 8, 2, 200),
 (21, 27, 11, 1, 520),
-(22, 28, 9, 1, 99.2);
+(22, 28, 9, 1, 99.2),
+(23, 29, 52, 20, 85000),
+(24, 30, 53, 15, 85000);
 
 -- --------------------------------------------------------
 
@@ -206,31 +215,6 @@ CREATE TABLE `detalle_ventas` (
   `precioventa` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `detalle_ventas`
---
-
-INSERT INTO `detalle_ventas` (`id`, `idventa`, `idproducto`, `cantidad`, `precioventa`) VALUES
-(1, 12, 8, 27, 100),
-(2, 12, 9, 2, 350),
-(3, 14, 8, 1, 100),
-(4, 14, 9, 1, 350),
-(5, 18, 10, 1, 350),
-(6, 18, 11, 1, 350),
-(7, 19, 11, 2, 350),
-(8, 20, 8, 1, 100),
-(9, 21, 8, 1, 100),
-(10, 21, 10, 1, 350),
-(21, 42, 10, 3, 150),
-(22, 43, 39, 1, 167.3),
-(23, 44, 8, 4, 49.9),
-(26, 48, 11, 1, 250),
-(27, 49, 8, 1, 49.9),
-(28, 50, 11, 2, 250),
-(29, 51, 8, 1, 49.9),
-(30, 52, 10, 1, 150),
-(31, 53, 8, 1, 49.9);
-
 -- --------------------------------------------------------
 
 --
@@ -248,7 +232,7 @@ CREATE TABLE `documentoidentidad` (
 
 INSERT INTO `documentoidentidad` (`idDocumentoIdentidad`, `nombre`) VALUES
 (1, 'CI'),
-(2, 'RUC/CI');
+(2, 'RUC');
 
 -- --------------------------------------------------------
 
@@ -275,8 +259,8 @@ CREATE TABLE `empleado` (
 --
 
 INSERT INTO `empleado` (`idEmpleado`, `nombres`, `apellidos`, `numIdentificación`, `telefono`, `dirección`, `nombreUsuario`, `clave`, `estado`, `idCargo`, `idDocumentoIdentidad`) VALUES
-(1, 'Amilcar', 'Dominguez', '4.976.142', '0985918044', 'Hernandarias', 'admin', 'admin', b'1', 1, 2),
-(3, 'Edgar', 'Fleitas Figueredo', '3.767.024', '0973193683', 'Minga Guazu', 'edgar', 'root', b'1', 1, 2),
+(1, 'Amilcar', 'Dominguez', '4.976.142', '0985918044', 'Hernandarias', 'amilcar', 'admin', b'1', 1, 2),
+(3, 'Edgar', 'Fleitas Figueredo', '3.767.024', '0973193683', 'Minga Guazu', 'edgar', 'root', b'1', 2, 2),
 (5, 'Efrain', 'Benitez Jara', '5.806.038', '0973720210', 'Hernandarias', 'efrain', 'root', b'1', 1, 2);
 
 -- --------------------------------------------------------
@@ -334,8 +318,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`idProducto`, `nombre`, `foto`, `descripcion`, `precio`, `stock`, `precioCompra`, `estado`, `destacado`, `idCategoria`, `idMarca`) VALUES
-(52, 'Earbuds Basic 2', 'null', 'Color Negro', '95000', 0, '85000', b'1', 1, 1, 1),
-(53, 'Earbuds Basic 3', 'http://localhost:8083/imagenes/', 'Color Negro', '95000', 0, '85000', b'1', 1, 1, 1);
+(52, 'Earbuds Basic 2', 'null', 'Color Negro', '95000', 10, '85000', b'1', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -508,7 +491,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT for table `cargo`
 --
 ALTER TABLE `cargo`
-  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idCargo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `categoria`
@@ -520,13 +503,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `idCliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `compras`
 --
 ALTER TABLE `compras`
-  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `idcompra` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `comprasweb`
@@ -544,7 +527,7 @@ ALTER TABLE `comprobante`
 -- AUTO_INCREMENT for table `detalle_compras`
 --
 ALTER TABLE `detalle_compras`
-  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `idDetalle` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `detalle_comprasweb`
@@ -556,7 +539,7 @@ ALTER TABLE `detalle_comprasweb`
 -- AUTO_INCREMENT for table `detalle_ventas`
 --
 ALTER TABLE `detalle_ventas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT for table `documentoidentidad`
@@ -598,7 +581,7 @@ ALTER TABLE `proveedor`
 -- AUTO_INCREMENT for table `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- Constraints for dumped tables

@@ -161,8 +161,7 @@
                                         </a>
                                         <ul class="treeview-menu">
                                             <li><a href="ControladorPrincipal?accion=NuevaVenta" target="myFrame"><i class="fa fa-cart-plus"></i> Nueva Venta</a></li>
-
-
+                                            
                                         </ul>
                                     </li>
 
