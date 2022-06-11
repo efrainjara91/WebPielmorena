@@ -83,8 +83,8 @@ function validaDireccion() {
     }
     return true;
 }
-function validaDNI() {
-    var elemento = document.getElementById("dni");
+function validaCI() {
+    var elemento = document.getElementById("ci");
     if (!elemento.checkValidity()) {
         if (elemento.validity.valueMissing) {
         error2(elemento, "Ingresa un número de identificación")
@@ -111,7 +111,7 @@ function validaClave() {
 }
 
 function validar(e) {
-    if (validaNombre() && validaApellidoP() && validaApellidoM() && validaEmail() && validaTelefono() && validaDireccion() && validaDNI() && validaClave() &&
+    if (validaNombre() && validaApellidoP() && validaApellidoM() && validaEmail() && validaTelefono() && validaDireccion() && validaCI() && validaClave() &&
             confirm("pulsa aceptar si deseas culminar con el registro"))
     {
         return true;

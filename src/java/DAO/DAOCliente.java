@@ -31,13 +31,13 @@ public class DAOCliente
   
     public void registrar(Clientes cliente) throws Exception {
         String sql;
-        sql = "INSERT INTO cliente (nombres, direccion, apellido_paterno, apellido_materno, correo_electrónico,clave, numIdentificación, genero, celular,fecha_nacimiento,estado,idDocumentoIdentidad) "
+        sql = "INSERT INTO cliente (nombres, direccion, apellido_paterno, apellido_materno, correo_electrónico, numIdentificación, genero, celular,fecha_nacimiento,estado,idDocumentoIdentidad) "
                 + "VALUES('" + cliente.getNombres() + "', '"
                 + cliente.getDirección()+ "', '"
                 + cliente.getApellido_paterno() + "', '"
                 + cliente.getApellido_materno() + "', '"
                 + cliente.getCorreo_electrónico() + "', '"
-                + cliente.getClave() + "', '"
+                
                 + cliente.getNumIdentificación() + "', '"
                 + cliente.getGenero() + "', '"
                 + cliente.getCelular() + "', '"
@@ -63,7 +63,7 @@ public class DAOCliente
                 + "', direccion = '" + clientes.getDirección()
                 + "', apellido_materno = '" + clientes.getApellido_materno()
                 + "', correo_electrónico = '" + clientes.getCorreo_electrónico()
-                + "', clave = '" + clientes.getClave()
+                
                 + "', numIdentificación = '" + clientes.getNumIdentificación()
                 + "', genero = '" + clientes.getGenero()
                 + "', celular = '" + clientes.getCelular()
@@ -84,7 +84,7 @@ public class DAOCliente
     public Clientes leer(Clientes clientes) throws Exception {
         Clientes cli = null;
         ResultSet rs = null;
-        String sql = "SELECT C.nombres,C.apellido_paterno,C.apellido_materno,C.direccion,C.correo_electrónico,C.clave,C.numIdentificación, "
+        String sql = "SELECT C.nombres,C.apellido_paterno,C.apellido_materno,C.direccion,C.correo_electrónico,C.numIdentificación, "
                 + "C.genero,C.celular,C.fecha_nacimiento,C.estado,C.idDocumentoIdentidad FROM cliente C "
                 + "where C.idCliente = " + clientes.getIdCliente();
         try {
@@ -98,7 +98,7 @@ public class DAOCliente
                 cli.setApellido_materno(rs.getString("apellido_materno"));
                 cli.setDirección(rs.getString("direccion"));
                 cli.setCorreo_electrónico(rs.getString("correo_electrónico"));
-                cli.setClave(rs.getString("clave"));
+                
                 cli.setNumIdentificación(rs.getString("numIdentificación"));
                 cli.setGenero(rs.getString("genero"));
                 cli.setCelular(rs.getString("celular"));
@@ -126,7 +126,7 @@ public class DAOCliente
         List<Clientes> clientes;
         Clientes cli;
         ResultSet rs = null;
-        String sql = "SELECT C.idCliente,C.nombres,C.apellido_paterno,C.apellido_materno,C.correo_electrónico,C.direccion,C.clave,"
+        String sql = "SELECT C.idCliente,C.nombres,C.apellido_paterno,C.apellido_materno,C.correo_electrónico,C.direccion,"
                 + "C.numIdentificación, C.genero,C.celular,C.fecha_nacimiento,C.estado FROM cliente C";
 
         
@@ -145,7 +145,7 @@ public class DAOCliente
                 cli.setApellido_materno(rs.getString("apellido_materno"));
                 cli.setCorreo_electrónico(rs.getString("correo_electrónico"));
                 cli.setDirección(rs.getString("direccion"));
-                cli.setClave(rs.getString("clave"));
+                
                 cli.setNumIdentificación(rs.getString("numIdentificación"));
                 cli.setGenero(rs.getString("genero"));
                 cli.setCelular(rs.getString("celular"));
@@ -172,7 +172,7 @@ public class DAOCliente
         List<Clientes> clientes;
         Clientes cli;
         ResultSet rs = null;
-        String sql = "SELECT C.idCliente,C.nombres,C.apellido_paterno,C.apellido_materno,C.correo_electrónico,C.direccion,C.clave,"
+        String sql = "SELECT C.idCliente,C.nombres,C.apellido_paterno,C.apellido_materno,C.correo_electrónico,C.direccion,"
                 + "C.numIdentificación, C.genero,C.celular,C.fecha_nacimiento,C.estado FROM cliente C where C.estado=1";
 
         
@@ -191,7 +191,7 @@ public class DAOCliente
                 cli.setApellido_materno(rs.getString("apellido_materno"));
                 cli.setCorreo_electrónico(rs.getString("correo_electrónico"));
                 cli.setDirección(rs.getString("direccion"));
-                cli.setClave(rs.getString("clave"));
+                
                 cli.setNumIdentificación(rs.getString("numIdentificación"));
                 cli.setGenero(rs.getString("genero"));
                 cli.setCelular(rs.getString("celular"));
@@ -216,7 +216,7 @@ public class DAOCliente
     }
 
     public Clientes Validar(String email, String pass) {
-        String sql = "select * from cliente where correo_electrónico=? and clave=?";
+        String sql = "select * from cliente where correo_electrónico=?";
         Clientes c = new Clientes();
         try {
             con = cn.getConnection();
@@ -230,7 +230,7 @@ public class DAOCliente
                 c.setNombres(rs.getString(3));
                 c.setDirección(rs.getString(4));
                 c.setCorreo_electrónico(rs.getString(5));
-                c.setClave(rs.getString(6));
+                
             }
         } catch (Exception e) {
         }
@@ -238,7 +238,7 @@ public class DAOCliente
     }
 
     public int AgregarCliente(Clientes c) {
-        String sql = "INSERT INTO cliente (numIdentificación, nombres, direccion, correo_electrónico, clave, estado, apellido_paterno, apellido_materno, genero, celular, fecha_nacimiento)values(?,?,?,?,?,?)";
+        String sql = "INSERT INTO cliente (numIdentificación, nombres, direccion, correo_electrónico, estado, apellido_paterno, apellido_materno, genero, celular, fecha_nacimiento)values(?,?,?,?,?,?)";
         try {
             con = cn.getConnection();
             ps = con.prepareStatement(sql);
@@ -246,7 +246,7 @@ public class DAOCliente
             ps.setString(2, c.getNombres());
             ps.setString(3, c.getDirección());
             ps.setString(4, c.getCorreo_electrónico());
-            ps.setString(5, c.getClave());
+            
             ps.setBoolean(6, c.isEstado());
             ps.executeUpdate();
         } catch (Exception e) {

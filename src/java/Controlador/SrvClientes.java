@@ -161,7 +161,7 @@ public class SrvClientes extends HttpServlet {
                 && request.getParameter("txtApellidoM") != null
                 && request.getParameter("txtDocumento") != null
                 && request.getParameter("txtCorreo") != null
-                && request.getParameter("txtClave") != null
+                
                 && request.getParameter("txtFechaNac") != null
                 && request.getParameter("txtCelular") != null) {
 
@@ -171,7 +171,7 @@ public class SrvClientes extends HttpServlet {
             cli.setApellido_materno(request.getParameter("txtApellidoM"));
             cli.setNumIdentificación(request.getParameter("txtDocumento"));
             cli.setCorreo_electrónico(request.getParameter("txtCorreo"));
-            cli.setClave(request.getParameter("txtClave"));
+            
             cli.setCelular(request.getParameter("txtCelular"));
             cli.setDirección(request.getParameter("txtDireccion"));
 
@@ -250,7 +250,7 @@ public class SrvClientes extends HttpServlet {
                 && request.getParameter("txtApellidoM") != null
                 && request.getParameter("txtDocumento") != null
                 && request.getParameter("txtCorreo") != null
-                && request.getParameter("txtClave") != null
+                
                 && request.getParameter("txtFechaNac") != null
                 && request.getParameter("txtFechaNac") != null
                 && request.getParameter("txtDireccion") != null) {
@@ -262,7 +262,7 @@ public class SrvClientes extends HttpServlet {
             cli.setApellido_materno(request.getParameter("txtApellidoM"));
             cli.setNumIdentificación(request.getParameter("txtDocumento"));
             cli.setCorreo_electrónico(request.getParameter("txtCorreo"));
-            cli.setClave(request.getParameter("txtClave"));
+            
             cli.setCelular(request.getParameter("txtCelular"));
             cli.setDirección(request.getParameter("txtDireccion"));
 
@@ -355,7 +355,7 @@ public class SrvClientes extends HttpServlet {
                 && request.getParameter("txtApellidoM") != null
                 && request.getParameter("txtDocumento") != null
                 && request.getParameter("txtCorreo") != null
-                && request.getParameter("txtClave") != null
+                
                 && request.getParameter("txtFechaNac") != null
                 && request.getParameter("txtCelular") != null) {
 
@@ -365,7 +365,7 @@ public class SrvClientes extends HttpServlet {
             cli.setApellido_materno(request.getParameter("txtApellidoM"));
             cli.setNumIdentificación(request.getParameter("txtDocumento"));
             cli.setCorreo_electrónico(request.getParameter("txtCorreo"));
-            cli.setClave(request.getParameter("txtClave"));
+            
             cli.setCelular(request.getParameter("txtCelular"));
             cli.setDirección(request.getParameter("txtDireccion"));
 

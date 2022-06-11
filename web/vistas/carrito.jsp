@@ -283,7 +283,7 @@
 
                     <div class="">
                         <p>Cliente: <b> ${logueo} </b></p>
-                        <p>DNI <b> ${dni} </b></p>
+                        <p>CI <b> ${ci} </b></p>
                         <p><b>  Monto Total:  S/ ${totalPagar}0 </b></p>
                         <!--<p>Representación impresa del Comprobante Electrónico<br>
                             Consulte en http://calzadocieloluana.com</p>

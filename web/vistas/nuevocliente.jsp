@@ -319,7 +319,7 @@
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
                                                                 <label>Documento (*):</label>
-                                                                <input type="text" name="txtDocumento" id="dni" class="form-control" required="" placeholder="80099999-9" maxlength="11"
+                                                                <input type="text" name="txtDocumento" id="ci" class="form-control" required="" placeholder="80099999-9" maxlength="11"
                                                    pattern="[0-9]{}" title="Número de máximo 11 cifras" value="${cliente.numIdentificación}">
                                                             </div>
                                                         </div>

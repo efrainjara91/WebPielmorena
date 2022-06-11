@@ -87,7 +87,7 @@ CREATE TABLE `cliente` (
 -- Dumping data for table `cliente`
 --
 
-INSERT INTO `cliente` (`idCliente`, `numIdentificación`, `nombres`, `direccion`, `correo_electrónico`, `clave`, `apellido_paterno`, `apellido_materno`, `genero`, `celular`, `fecha_nacimiento`, `estado`, `idDocumentoIdentidad`) VALUES
+INSERT INTO `cliente` (`idCliente`, `numIdentificación`, `nombres`, `direccion`, `correo_electrónico`, `apellido_paterno`, `apellido_materno`, `genero`, `celular`, `fecha_nacimiento`, `estado`, `idDocumentoIdentidad`) VALUES
 (52, '5806038', 'Efrain', 'Asuncion', 'efrainjara91@gmail.com', '123', 'Benitez', 'Jara', 'M', '0973720210', '2022-06-07', b'1', 2),
 (53, '5806039', 'Amilcar', 'Hernandarias', 'efrainjara95@gmail.com', '123', 'Dominguez ', 'Galeano', 'M', '0973720211', '2022-06-08', b'1', 1);
 
@@ -247,7 +247,7 @@ CREATE TABLE `documentoidentidad` (
 --
 
 INSERT INTO `documentoidentidad` (`idDocumentoIdentidad`, `nombre`) VALUES
-(1, 'DNI'),
+(1, 'CI'),
 (2, 'RUC/CI');
 
 -- --------------------------------------------------------

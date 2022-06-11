@@ -84,7 +84,7 @@ public class Controlador extends HttpServlet {
             session.setAttribute("logueo", logueo);
             session.setAttribute("correo", correo);
             session.setAttribute("comprar", comprar);
-            session.setAttribute("dni", doc);
+            session.setAttribute("ci", doc);
 
             productos = pdao.listar();
             productosDestacados = pdao.listarDestacados();
@@ -422,7 +422,7 @@ public class Controlador extends HttpServlet {
             cli.setApellido_materno(request.getParameter("txtApellidoM"));
             cli.setNumIdentificación(request.getParameter("txtDocumento"));
             cli.setCorreo_electrónico(request.getParameter("txtCorreo"));
-            cli.setClave(request.getParameter("txtClave"));
+            
             cli.setCelular(request.getParameter("txtCelular"));
             cli.setDirección(request.getParameter("txtDireccion"));
 

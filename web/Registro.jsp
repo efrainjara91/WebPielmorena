@@ -212,7 +212,7 @@
 
                                         <div class="col-md-6 form-group">
                                             <label>N° Documento *</label>
-                                            <input type="text" name="txtDocumento" id="dni" class="form-control" required="" placeholder="73059476" maxlength="8"
+                                            <input type="text" name="txtDocumento" id="ci" class="form-control" required="" placeholder="73059476" maxlength="8"
                                                    pattern="[0-9]{8}" title="Número de 8 cifras">
                                         </div>
                                         <div class="col-md-6 form-group">
